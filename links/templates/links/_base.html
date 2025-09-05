@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Links</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Navbar -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="/" class="flex items-center text-xl font-bold text-indigo-600">
+                <span class="mr-2">🔗</span> MyLinks
+            </a>
+
+            <!-- Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="/" class="text-gray-700 hover:text-indigo-600">Home</a>
+                <a href="/links" class="text-gray-700 hover:text-indigo-600">Links</a>
+                <a href="/about" class="text-gray-700 hover:text-indigo-600">About</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-200 focus:outline-none">
+                ☰
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6">
+        {% block content %}
+        <!-- Page content goes here -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-inner mt-10">
+        <div class="container mx-auto px-4 py-6 text-center text-gray-600">
+            © 2025 MyLinks. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

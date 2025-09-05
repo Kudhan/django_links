@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Link Shortener</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-indigo-600 mb-4">🔗 My Link Shortener</h1>
+        <hr class="mb-6 border-gray-300">
+
+        <ul class="space-y-4">
+            {% for link in links %}
+            <li class="bg-white shadow rounded-lg p-4 flex justify-between items-center">
+                <div>
+                    <p class="font-semibold text-lg">{{ link.name }}</p>
+                    <p class="text-gray-600">
+                        <a href="{{ link.url }}" target="_blank" class="text-indigo-500 hover:underline">
+                            {{ link.url }}
+                        </a>
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Slug: <span class="font-mono">{{ link.slug }}</span>
+                    </p>
+                </div>
+
+                <!-- Click Count + Visit Button -->
+                <div class="flex items-center space-x-4">
+                    <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">
+                        {{ link.clicks }} clicks
+                    </span>
+                    <a href="{% url 'root_link' link.slug %}" 
+                       class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                        Visit
+                    </a>
+                </div>
+            </li>
+            {% empty %}
+            <li class="text-gray-600">No links available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
